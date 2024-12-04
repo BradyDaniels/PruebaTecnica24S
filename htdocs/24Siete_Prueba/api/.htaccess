@@ -1,0 +1,16 @@
+RewriteEngine On
+RewriteBase /24siete_prueba/api/
+RewriteRule ^ubicaciones$ ubicaciones.php [L]
+RewriteRule ^doctores$ doctores.php [L]
+RewriteRule ^servicios$ servicios.php [L]
+RewriteRule ^citas$ citas.php [L]
+RewriteRule ^pacientes$ pacientes.php [L]
+RewriteRule ^especialidades$ especialidades.php [L]
+
+# Reglas para acceder a citas con un ID
+RewriteRule ^citas/([0-9]+)$ citas.php?id=$1 [L,QSA]
+RewriteRule ^ubicaciones/([0-9]+)$ ubicaciones.php?id=$1 [L,QSA]
+RewriteRule ^especialidades/([0-9]+)$ especialidades.php?id=$1 [L,QSA]
+RewriteRule ^servicios/([0-9]+)$ servicios.php?id=$1 [L,QSA]
+RewriteRule ^doctores/([0-9]+)$ doctores.php?id=$1 [L,QSA]
+RewriteRule ^pacientes/([0-9]+)$ pacientes.php?id=$1 [L,QSA]
