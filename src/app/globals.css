@@ -46,6 +46,13 @@ p, span, label{
   font-size: 15px;
 }
 
+a{
+  color: #2e3bca;
+  font-weight: medium;
+  font-size: 15px;
+  text-decoration: underline;
+}
+
 input {
   border-color: #000;
 }
