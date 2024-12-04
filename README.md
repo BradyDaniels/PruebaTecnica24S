@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Descripcion general
 
-## Getting Started
+Este proyecto es para la prueba tecnica 24siete. A nivel funcional consiste en una vistia home inicial la cual te pedira seleccionar el rol, si quieres ser paciente o doctor.
 
-First, run the development server:
+- El doctor podra agregar un nuevo servicio o administrar los ya existente. Podra tambien re agendar o confirmar las citas solicitadas.
+- El paciente podra visualizar las citas que a agendado y podrias buscar doctores dentro una ubicacion y especialidad en especifico para agendar una nueva cita. 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Descripcion tecnica
+ El backend de este proyecto fue realizado mediante la herramienta xampp, para el levantamiento rapido de una base de datos, usando PHP principalmente para la creacion de un CRUD basico y rutas API que se conectan al frotnend realizado en nextjs y estilizado con tailwindcss. 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Instalacion
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Backend-Xampp
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+#### Instalacion de XAMPP
 
-## Learn More
+  Para la ejecucion del backend de este proyecto junto con la administracion de la base de datos se requiere la instalacion y ejecucion de xampp teniendo habilitado Apache y Mysql en su panel de control. Aqui su link de descarga: https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/8.0.30/xampp-windows-x64-8.0.30-0-VS16-installer.exe/download
 
-To learn more about Next.js, take a look at the following resources:
+#### Importar DB
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Una vez instalado XAMPP es vital que se importe la base de datos encontrando en el documento "db-export" ubicado en la raiz de este repositorio.
+- Luego de la importancion se debe de crear el usuario para la base de datos importada mediante el siquiente query:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+  GRANT ALL PRIVILEGES ON *.* TO `CRUD`@`localhost` IDENTIFIED BY PASSWORD '*23C85CE7B732736570B43A505CE609BF83DFFAFC' WITH GRANT OPTION;
+  GRANT ALL PRIVILEGES ON `prueba tecnica 24siete`.* TO `CRUD`@`localhost`;
 
-## Deploy on Vercel
+- Una vez importada el usuario y la bd, se debe de copiar la carpeta "htdocs" ubicada en la raiz de este repositorio y pegarla en la carpeta raiz de donde se tiene instalado el XAMPP. Pedira reemplazar y hay que darle a aceptar, esto es con la finalidad de colocar los scripts php necesarios tanto para el CRUD de la base de datos como para las llamadas api.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Este servidor correra en localhost siempre y cuando se tenga xampp ejecutado.  
+  
+  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Frontend-Nextjs
+
+Para la instalacion del front de este proyecto, sencillamente se debe de clonar el repositorio y en una terminal ubicada en la raiz de este ejecutar "npm i" para la descarga de node_modules. El proyecto se ejecuta con el comando "npm run dev".
+
+
+
