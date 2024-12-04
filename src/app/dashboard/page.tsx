@@ -89,7 +89,7 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchServicios = async () => {
       try {
-        const response = await fetch('http://localhost/24siete_prueba/api/servicios?IDDoctor=2'); // Ajusta la ruta según tu API
+        const response = await fetch('http://localhost/24siete_prueba/api/servicios?IDDoctor=2');
         if (!response.ok) {
           throw new Error('Error al obtener los servicios');
         }
@@ -100,10 +100,9 @@ export default function Dashboard() {
           throw new Error('Error al obtener la especialidad');
         }
         const dataEsp = await response_esp.json();
-        // Concatenar data con el título de la especialidad
         const serviciosConEsp = data.map(servicio => ({
             ...servicio,
-            Especialidad: dataEsp.Titulo // Asegúrate de que dataEsp tenga el índice correcto
+            Especialidad: dataEsp.Titulo
         }));
 
         setServicios(serviciosConEsp);
@@ -116,7 +115,7 @@ export default function Dashboard() {
 
     const fetchCitas = async () => {
       try {
-        const response = await fetch('http://localhost/24siete_prueba/api/citas?IDDoctor=2'); // Ajusta la ruta según tu API
+        const response = await fetch('http://localhost/24siete_prueba/api/citas?IDDoctor=2');
         if (!response.ok) {
           throw new Error('Error al obtener los servicios');
         }
@@ -131,8 +130,8 @@ export default function Dashboard() {
       
           return {
               ...cita,
-              Paciente: dataPa.NombreCompleto, // Nombre completo del paciente
-              Status: cita.Estado == 0 ? 'Pendiente' : 'Aprobado' // Estado de la cita
+              Paciente: dataPa.NombreCompleto,
+              Status: cita.Estado == 0 ? 'Pendiente' : 'Aprobado' 
           };
        }));
 
@@ -145,7 +144,7 @@ export default function Dashboard() {
     };
     fetchCitas();
     fetchServicios();
-  }, []); // El array vacío asegura que se ejecute solo una vez al montar el componente
+  }, []); 
 
   const handleChange = (event) => {
       setSelectedOption(event.target.value);
@@ -177,7 +176,7 @@ export default function Dashboard() {
           "Precio": precio,
           "IDDoctor": item.IDDoctor
         })
-      }); // Ajusta la ruta según tu API
+      });
       if (!response.ok) {
         throw new Error('Error al actualizar los servicios');
       }
@@ -196,7 +195,7 @@ export default function Dashboard() {
         headers:{
           'Content-Type':'aplication/json',
         },
-      }); // Ajusta la ruta según tu API
+      });
       if (!response.ok) {
         throw new Error('Error al actualizar los servicios');
       }
@@ -221,7 +220,7 @@ export default function Dashboard() {
           "Precio": precio,
           "IDDoctor": "2"
         })
-      }); // Ajusta la ruta según tu API
+      });
       if (!response.ok) {
         throw new Error('Error al obtener los servicios');
       }
@@ -252,7 +251,7 @@ export default function Dashboard() {
           "HoraCita": HoraCita,
           "Estado": 1
         })
-      }); // Ajusta la ruta según tu API
+      }); 
       console.log(response)
       if (!response.ok) {
         throw new Error('Error al actualizar la cita');

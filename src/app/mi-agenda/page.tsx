@@ -45,7 +45,7 @@ export default function MiAgenda() {
 
     const fetchCitas = async () => {
       try {
-        const response = await fetch('http://localhost/24siete_prueba/api/citas?IDPaciente=1'); // Ajusta la ruta según tu API
+        const response = await fetch('http://localhost/24siete_prueba/api/citas?IDPaciente=1'); 
         if (!response.ok) {
           throw new Error('Error al obtener los servicios');
         }
@@ -60,8 +60,8 @@ export default function MiAgenda() {
       
           return {
               ...cita,
-              Doctor: dataDoc.NombreCompleto, // Nombre completo del paciente
-              Status: cita.Estado == 0 ? 'Pendiente' : 'Aprobado' // Estado de la cita
+              Doctor: dataDoc.NombreCompleto, 
+              Status: cita.Estado == 0 ? 'Pendiente' : 'Aprobado' 
           };
        }));
 
@@ -73,7 +73,7 @@ export default function MiAgenda() {
       }
     };
     fetchCitas();
-  }, []); // El array vacío asegura que se ejecute solo una vez al montar el componente
+  }, []);
 
   
   const columns2 = ['#', 'Titulo', 'FechaCita', 'HoraCita','Doctor', 'Status'];
@@ -90,7 +90,7 @@ export default function MiAgenda() {
         headers:{
           'Content-Type':'aplication/json',
         },
-      }); // Ajusta la ruta según tu API
+      }); 
       if (!response.ok) {
         throw new Error('Error al actualizar los servicios');
       }
